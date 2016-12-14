@@ -12,7 +12,7 @@ ActiveAdmin.register_page "Dashboard" do
 
     # Here is an example of a simple dashboard with columns and panels.
     #
-    # columns do
+     columns do
     #   column do
     #     panel "Recent Posts" do
     #       ul do
@@ -23,11 +23,25 @@ ActiveAdmin.register_page "Dashboard" do
     #     end
     #   end
 
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
+       column do
+         panel "Info" do
+           para "Welcome to Library."
+         end
+       end
+     end
   end # content
+end
+
+ActiveAdmin.register Book do
+  permit_params :title, :description, :isbn, :picture
+    form do |f|
+      f.inputs "Book Details" do
+        f.input :title
+        f.input :description
+        f.input :isbn
+        f.input :picture
+      end
+      f.submit :Submit
+    end
+
 end
