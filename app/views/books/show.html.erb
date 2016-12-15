@@ -1,0 +1,15 @@
+<%= image_tag @book.picture.url(:default) %>
+<h2><%= @book.title %></h2>
+<h3><%= @book.description %></h3>
+<h4><%= @book.isbn %></h4>
+<%= link_to "All books", "/books/" %>
+<%= link_to "Add review","/books/#{@book.id}/reviews/new" %>
+
+<h2>Reviews</h2>
+
+<% @reviews.each do |rev| %>
+    <div>
+      Review: <p><%=rev.text%></p>
+      Rating: <h4><%=rev.rating%></h4>
+    </div>
+<% end %>

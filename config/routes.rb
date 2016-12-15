@@ -55,5 +55,12 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-    get '/books/' => 'books#list'
+    resources :books do
+
+    end
+
+    resources :books do
+      resources :reviews
+    end
+
 end

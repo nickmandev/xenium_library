@@ -1,0 +1,11 @@
+<h2> Review </h2>
+
+<div>
+  <%= form_for @review, url: book_reviews_path, :method => :post do |f| %>
+      <%= f.text_area :text %>
+      <%= f.number_field :rating %>
+      <%= f.hidden_field :book_id, value: params[:book_id] %>
+      <%= f.submit %>
+  <% end %>
+
+</div>
