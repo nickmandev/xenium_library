@@ -29,10 +29,15 @@ ActiveAdmin.register_page "Dashboard" do
          end
        end
      end
-  end # content
+  end
 end
 
 ActiveAdmin.register Book do
+  sidebar "Reviews", only: [:edit] do
+    ul do
+     li link_to "Make a review", new_admin_book_review_path(params[:id])
+    end
+  end
   permit_params :title, :description, :isbn, :picture
     form do |f|
       f.inputs "Book Details" do
@@ -43,5 +48,11 @@ ActiveAdmin.register Book do
       end
       f.submit :Submit
     end
-
 end
+
+ActiveAdmin.register Review do
+  permit_params :text, :rating, :book_id
+  belongs_to :book
+end
+
+
