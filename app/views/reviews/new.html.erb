@@ -1,11 +1,26 @@
-<h2> Review </h2>
-
-<div>
-  <%= form_for @review, url: book_reviews_path, :method => :post do |f| %>
-      <%= f.text_area :text %>
-      <%= f.number_field :rating %>
-      <%= f.hidden_field :book_id, value: params[:book_id] %>
-      <%= f.submit %>
-  <% end %>
-
+<div class="row">
+  <div class="small-12 large-2 large-offset-5 column">
+    <h2> Review </h2>
+  </div>
 </div>
+<div class="row">
+  <div class="small-12 large-6 large-offset-4 column">
+    <h4>Share your thoughts on the book.</h4>
+  </div>
+</div>
+<%= form_for @review, url: book_reviews_path, :method => :post do |f| %>
+    <div class="row">
+      <div class="small-12 large-12 column">
+        <textarea class="text_area" type="text" name="review[text]"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-6 large-2 column">
+        <input type="number" class="number" name="review[rating]" placeholder="Rating">
+        <%= f.hidden_field :book_id, value: params[:book_id] %>
+      </div>
+      <div class="small-12 large-10 column">
+        <button class="button" type="submit">Submit</button>
+      </div>
+    </div>
+<% end %>

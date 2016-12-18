@@ -1,0 +1,16 @@
+<div class="row">
+  <h2 class="small-12 large-2 large-offset-5 column">Results</h2>
+</div>
+<% parsed = JSON.parse(@data, :symbolize_names => true) %>
+<% parsed.each do |res| %>
+    <div class="row">
+      <div class="small-12 large-6 column">
+        <h4>
+          <%= link_to "#{res[:title]}", "/books/#{res[:id]}" %>
+        </h4>
+      </div>
+      <div class="small-12 large-6 column">
+        <p><%= res[:description] %></p>
+      </div>
+    </div>
+<% end %>

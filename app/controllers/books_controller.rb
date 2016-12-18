@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+
+  skip_before_action :verify_authenticity_token, :only => [:search]
+
   def new
     @book = Book.new
   end
@@ -18,19 +21,20 @@ class BooksController < ApplicationController
   end
 
   def search
-    results = []
+    @books = Book.all
+    @results = []
     search = params[:name].to_s.downcase
     @books.each do |book|
-     if book.title.downcase.include?(search)
-       results.push(book)
-     end
+      if book.title.downcase.include?(search)
+        @results.push(book)
+      end
     end
-    results.to_json
-    results
+    @data = @results.to_json
+    @data
   end
 
   private
   def book_params
-    params.require(:book).permit(:title,:description,:isbn, picture_attributes: [:picture])
+    params.require(:book).permit(:name, :title,:description,:isbn, picture_attributes: [:picture])
   end
 end

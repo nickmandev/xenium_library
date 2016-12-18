@@ -1,15 +1,42 @@
-<%= image_tag @book.picture.url(:default) %>
-<h2><%= @book.title %></h2>
-<h3><%= @book.description %></h3>
-<h4><%= @book.isbn %></h4>
-<%= link_to "All books", "/books/" %>
-<%= link_to "Add review","/books/#{@book.id}/reviews/new" %>
+<div class="row">
+  <div class="small-12 large-1 column">
+    <%= image_tag @book.picture.url(:default) %>
+  </div>
+  <div class="small-12 large-10 column">
+    <h2><%= @book.title %></h2>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="small-12 large-12 column">
+    <h3><%= @book.description %></h3>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="small-6 large-4 column">
+    <h4>
+      <%= link_to "All books", "/books/" %>
+      <%= link_to "Add review","/books/#{@book.id}/reviews/new" %>
+    </h4>
+  </div>
+  <div class="small-6 large-4 column">
+    <h4 class="float-right">ISBN: <%= @book.isbn %></h4>
+  </div>
+</div>
 
-<h2>Reviews</h2>
-
+<div class="row">
+  <div class="small-12 large-2 large-offset-5 column">
+    <h2>Reviews</h2>
+  </div>
+</div>
 <% @reviews.each do |rev| %>
-    <div>
-      Review: <p><%=rev.text%></p>
-      Rating: <h4><%=rev.rating%></h4>
+    <div class="row">
+      <div class="small-6 large-2 column">
+         <h5>Rating: <%=rev.rating%></h5>
+      </div>
+      <div class="small-6 large-9 column">
+        <h5><%=rev.text%></h5>
+      </div>
     </div>
 <% end %>

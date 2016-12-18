@@ -63,4 +63,6 @@ Rails.application.routes.draw do
       resources :reviews
     end
 
+    post '/search' => "books#search"
+
 end
