@@ -1,11 +1,35 @@
 <h2>All books</h2>
 
-<div>
   <% @books.each do |book| %>
-      <%= image_tag book.picture.url(:default) %>
-      <h2><%= book.title %></h2>
-      <%= link_to "View details", "/books/#{book.id}"%>
-      <h4><%= book.description %></h4>
-      <p><%= book.isbn %></p>
+    <div class="row">
+      <div class="small-12 large-1 column">
+        <%= image_tag book.picture.url(:default) %>
+      </div>
+      <div class="small-11 large-10 column">
+        <h4><%= book.title %></h4>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="small-12 large-12 column">
+        <h5><%= book.description %></h5>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="small-6 large-2 column">
+        <span>
+          ISBN:<%= book.isbn %>
+        </span>
+      </div>
+      <div class="small-6 large-2 column">
+        <span>
+          <%= link_to "View details", "/books/#{book.id}"%>
+        </span>
+      </div>
+    </div>
+    <br>
   <% end %>
-</div>
+
+
+
