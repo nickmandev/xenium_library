@@ -65,4 +65,6 @@ Rails.application.routes.draw do
 
     post '/search' => "books#search"
 
+    root 'books#index'
+
 end

@@ -15,3 +15,24 @@
  *= require foundation_and_overrides
 
  */
+
+ .input-field {
+     margin-top: 10px;
+     padding: 10px;
+     width: 80%;
+ }
+
+ #input-button {
+     margin-top: 10px;
+     background-color: #2199e8;
+     background-image: none;
+     text-shadow: none;
+     line-height: 10px;
+     padding: 12px;
+     border: none;
+ }
+
+ #input-button:hover {
+     background-color: #2199e8;
+     background-image: none;
+ }
